@@ -28,6 +28,18 @@
             background-position: top;
             letter-spacing: 0.1px;
         }
+
+        #loveButton {
+            position: fixed;
+            width: 100px; /* Set your desired fixed width */
+            height: 40px; /* Set your desired fixed height */
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
@@ -79,12 +91,22 @@
         Ohh…sinta
         Oh kay gandang umibig sa ’yo
         Ako ay hihimlay sa ’yong tabi
-        At tatanggapin kita, ohh/p>
+        At tatanggapin kita, ohh</p>
+
+    <button id="loveButton">I Love You</button>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var textElement = document.getElementById("text");
             textElement.innerHTML = textElement.innerHTML.repeat(500);
+
+            var loveButton = document.getElementById("loveButton");
+            loveButton.addEventListener("click", function() {
+                var randomX = Math.floor(Math.random() * (window.innerWidth - loveButton.offsetWidth));
+                var randomY = Math.floor(Math.random() * (window.innerHeight - loveButton.offsetHeight));
+                loveButton.style.left = randomX + "px";
+                loveButton.style.top = randomY + "px";
+            });
         });
     </script>
 </body>
